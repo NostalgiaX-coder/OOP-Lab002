@@ -1,9 +1,15 @@
+import java.util.Map;
+import java.util.TreeMap;
+
 public class AirPurifier{
     String model;
     String serialNo;
     boolean power;
     int fanSpeed;
     double pm25;
+    static int totalCount = 0;
+    static int modelCount = 0;
+    static Map<String, Integer> modelCounts = new TreeMap<>();
 
     AirPurifier(String model, String serialNo){
         this.model = model;
@@ -11,6 +17,12 @@ public class AirPurifier{
         this.power = false;
         this.fanSpeed = 0;
         this.pm25 = 0;
+        totalCount++;
+        if (!modelCounts.containsKey(model)) {
+            modelCount++;
+            modelCounts.put(model, 0);
+        }
+        modelCounts.put(model, modelCounts.get(model) + 1);
     }
     void turnOn(){
         power = true;
@@ -51,5 +63,30 @@ public class AirPurifier{
         System.out.println("Power: " + power);
         System.out.println("Fan Speed: " + fanSpeed);
         System.out.println("PM2.5 : " + pm25);
+    }
+    static int getTotalCount() {
+        return totalCount;
+    }
+    static int getModelCount() {
+        return modelCount;
+    }
+    static String mostPopularModel() {
+        String result = null;
+        int maxCount = 0;
+        for (String model : modelCounts.keySet()) {
+            int count = modelCounts.get(model);
+            if (count > maxCount) {
+                maxCount = count;
+                result = model;
+            }
+        }
+        return result;
+    }
+    static double averageCountPerModel() {
+        if (modelCount == 0) {
+            return 0.0;
+        }
+
+        return (double) totalCount / modelCount;
     }
 }
