@@ -73,5 +73,3 @@ AirPurifier(String model, String serialNo)
 | getModelCount() | ไม่มี | คืนค่าจำนวนรุ่นที่แตกต่างกัน | int |
 | mostPopularModel() | ไม่มี | เปรียบเทียบจำนวนเครื่องของแต่ละรุ่น แล้วคืนชื่อรุ่นที่มีจำนวนมากที่สุด หรือ null หากไม่มีข้อมูล | String |
 | averageCountPerModel() | ไม่มี | นำจำนวนเครื่องทั้งหมดหารด้วยจำนวนรุ่น หากไม่มีข้อมูลให้คืน 0.0 | double |
-
-หมายเหตุ: Class Variables และ Class Methods เป็นเพียงการออกแบบตามโจทย์ข้อ 1 และข้อ 2 โดยไม่ได้ Implement ในโปรแกรม เนื่องจากไม่ได้ทำข้อ 5 ซึ่งเป็น Extra Credit.
