@@ -1,4 +1,4 @@
-public class Lab002 {
+public class Lab02 {
     public static void main(String[] args){
         AirPurifier a = new AirPurifier("Pro", "001");
         AirPurifier b = new AirPurifier("Standard", "002");
